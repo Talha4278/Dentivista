@@ -1,31 +1,49 @@
-import { useState, useEffect } from 'react';
 import { Star, Quote, Video } from 'lucide-react';
-import { supabase, Review } from '../lib/supabase';
+
+interface Review {
+  id: string;
+  patient_name: string;
+  rating: number;
+  comment: string;
+  video_url: string | null;
+  is_featured: boolean;
+  created_at: string;
+}
+
+const staticReviews: Review[] = [
+  {
+    id: '1',
+    patient_name: 'Sarah M.',
+    rating: 5,
+    comment:
+      'The team was incredibly gentle and professional. I finally feel confident about my smile again.',
+    video_url: null,
+    is_featured: true,
+    created_at: '2025-01-15T10:00:00Z',
+  },
+  {
+    id: '2',
+    patient_name: 'James L.',
+    rating: 5,
+    comment:
+      'From the reception to the treatment, everything was smooth and stress-free. Highly recommend this clinic.',
+    video_url: null,
+    is_featured: false,
+    created_at: '2025-02-10T12:30:00Z',
+  },
+  {
+    id: '3',
+    patient_name: 'Ayesha K.',
+    rating: 4,
+    comment:
+      'Very caring staff and modern equipment. They took time to explain every step of my treatment.',
+    video_url: null,
+    is_featured: false,
+    created_at: '2025-03-05T09:15:00Z',
+  },
+];
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState<Review[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchReviews();
-  }, []);
-
-  const fetchReviews = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('reviews')
-        .select('*')
-        .order('is_featured', { ascending: false })
-        .order('created_at', { ascending: false });
-
-      if (error) throw error;
-      setReviews(data || []);
-    } catch (error) {
-      console.error('Error fetching reviews:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, index) => (
@@ -44,21 +62,6 @@ const Reviews = () => {
     return `https://www.youtube.com/embed/${videoId}`;
   };
 
-  if (loading) {
-    return (
-      <section id="reviews" className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="animate-pulse">
-              <div className="h-12 bg-gray-200 rounded w-64 mx-auto mb-4"></div>
-              <div className="h-6 bg-gray-200 rounded w-96 mx-auto"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section id="reviews" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,7 +73,7 @@ const Reviews = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reviews.map((review) => (
+          {staticReviews.map((review) => (
             <div
               key={review.id}
               className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 ${
