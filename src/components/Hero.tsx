@@ -18,20 +18,32 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#3F4F2F] via-[#6B8E23] to-[#8FAF3E] overflow-hidde"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <div className="absolute inset-0 opacity-10">
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        style={{
+          backgroundImage: 'url(/clinic-photo.jpeg)',
+        }}
+      >
+        {/* Overlay for transparency and readability - lighter overlay to show image */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#3F4F2F]/40 via-[#6B8E23]/35 to-[#8FAF3E]/40"></div>
+        <div className="absolute inset-0 bg-black/10"></div>
+      </div>
+
+      <div className="absolute inset-0 opacity-10 z-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
         <div className="animate-fade-in-up">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             Your Health, <br />
-            <span className="ext-[#EAF2D3]">Our Priority</span>
+            <span className="text-[#EAF2D3] drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">Our Priority</span>
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-cyan-50 mb-12 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-white mb-12 max-w-3xl mx-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] font-medium">
             Experience compassionate, comprehensive healthcare with our team of dedicated professionals.
             Quality care you can trust, when you need it most.
           </p>
@@ -44,7 +56,7 @@ const Hero = () => {
             </button>
             <button
               onClick={scrollToServices}
-              className="w-full sm:w-auto bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-teal-600 transition-all transform hover:scale-105"
+              className="w-full sm:w-auto bg-white bg-opacity-10 backdrop-blur-md border-2 border-white border-opacity-50 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-opacity-20 hover:border-opacity-100 transition-all transform hover:scale-105 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
             >
               Our Services
             </button>
@@ -70,7 +82,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-10"></div>
     </section>
   );
 };

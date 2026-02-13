@@ -202,18 +202,34 @@ const Contact = () => {
                   } rounded-xl focus:ring-2 focus:ring-[#6B8E23] focus:border-transparent transition-all`}
                 >
                   <option value="">Select a service</option>
-                  <option value="general">General Check-up</option>
-                  <option value="cardiology">Cardiology</option>
-                  <option value="pediatrics">Pediatrics</option>
-                  <option value="sports">Sports Medicine</option>
-                  <option value="vision">Vision Care</option>
-                  <option value="chronic">Chronic Disease Management</option>
-                  <option value="vaccination">Vaccinations</option>
-                  <option value="screening">Health Screenings</option>
-                  <option value="womens">Women's Health</option>
-                  <option value="lab">Laboratory Services</option>
-                  <option value="physical">Physical Therapy</option>
-                  <option value="mental">Mental Health</option>
+                  <optgroup label="Dental Services">
+                    <option value="root-canal">Root Canal Treatment</option>
+                    <option value="scaling-polishing">Scaling & Polishing</option>
+                    <option value="teeth-whitening">Teeth Whitening/Bleaching</option>
+                    <option value="cosmetic-filling">Cosmetic Tooth Colored Filling</option>
+                    <option value="smile-design">Smile Design</option>
+                    <option value="gum-treatment">Gum Treatment</option>
+                    <option value="dental-jewellery">Dental Jewellery</option>
+                    <option value="dental-implants">Dental Implants and Bone Management</option>
+                    <option value="dentures">Removable and Fixed Dentures</option>
+                    <option value="cast-partial">Cast Partial Dentures</option>
+                    <option value="zirconium-crowns">Zirconium Crowns</option>
+                    <option value="pfm-crowns">PFM Crowns</option>
+                    <option value="extractions">Simple Extractions, Complex Extraction and Surgery</option>
+                    <option value="wisdom-tooth">Wisdom Tooth Surgery</option>
+                    <option value="sealants">Pits and Fissure Sealants</option>
+                    <option value="orthodontic">Orthodontic Treatment</option>
+                    <option value="clear-aligners">Clear Aligners</option>
+                  </optgroup>
+                  <optgroup label="Aesthetic Services">
+                    <option value="hydrafacial">Hydrafacial</option>
+                    <option value="laser">Laser</option>
+                    <option value="prp">PRP (Face, Hair)</option>
+                    <option value="microneedling">Microneedling</option>
+                    <option value="mesotherapy">Mesotherapy</option>
+                    <option value="mole-removal">Mole Removal</option>
+                    <option value="chemical-peel">Chemical Peel</option>
+                  </optgroup>
                 </select>
                 {errors.service && <p className="mt-1 text-sm text-red-600">{errors.service}</p>}
               </div>

@@ -21,16 +21,7 @@ const staticReviews: Review[] = [
     is_featured: true,
     created_at: '2025-01-15T10:00:00Z',
   },
-  {
-    id: '2',
-    patient_name: 'James L.',
-    rating: 5,
-    comment:
-      'From the reception to the treatment, everything was smooth and stress-free. Highly recommend this clinic.',
-    video_url: null,
-    is_featured: false,
-    created_at: '2025-02-10T12:30:00Z',
-  },
+  
   {
     id: '3',
     patient_name: 'Ayesha K.',
@@ -40,6 +31,26 @@ const staticReviews: Review[] = [
     video_url: null,
     is_featured: false,
     created_at: '2025-03-05T09:15:00Z',
+  },
+  {
+    id: '4',
+    patient_name: 'Mohib',
+    rating: 5,
+    comment:
+      'Outstanding service! The entire team made me feel comfortable throughout my visit. The results exceeded my expectations.',
+    video_url: '/review 1.mp4',
+    is_featured: true,
+    created_at: '2025-02-01T14:20:00Z',
+  },
+  {
+    id: '5',
+    patient_name: 'Abdul Wais',
+    rating: 5,
+    comment:
+      'Professional, friendly, and efficient. I had a wonderful experience and would definitely recommend to friends and family.',
+    video_url: '/review 2.mp4',
+    is_featured: false,
+    created_at: '2025-02-05T11:45:00Z',
   },
 ];
 
@@ -60,6 +71,11 @@ const Reviews = () => {
     if (url.includes('embed')) return url;
     const videoId = url.split('v=')[1]?.split('&')[0] || url.split('/').pop();
     return `https://www.youtube.com/embed/${videoId}`;
+  };
+
+  const isLocalVideo = (url: string | null) => {
+    if (!url) return false;
+    return url.startsWith('/') || url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.mov');
   };
 
   return (
@@ -89,12 +105,21 @@ const Reviews = () => {
               {review.video_url && (
                 <div className="mb-6 rounded-xl overflow-hidden">
                   <div className="relative pb-[56.25%]">
-                    <iframe
-                      src={getYouTubeEmbedUrl(review.video_url) || ''}
-                      className="absolute top-0 left-0 w-full h-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
+                    {isLocalVideo(review.video_url) ? (
+                      <video
+                        src={review.video_url}
+                        className="absolute top-0 left-0 w-full h-full object-cover"
+                        controls
+                        playsInline
+                      />
+                    ) : (
+                      <iframe
+                        src={getYouTubeEmbedUrl(review.video_url) || ''}
+                        className="absolute top-0 left-0 w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    )}
                   </div>
                   <div className="flex items-center justify-center mt-3 text-[#6B8E23]">
                     <Video size={18} className="mr-2" />
