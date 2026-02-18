@@ -3,33 +3,27 @@ import { Award, Heart, Users } from 'lucide-react';
 const About = () => {
   const team = [
     {
-      name: 'Dr. Sarah Martinez',
-      role: 'Chief Medical Officer',
-      specialty: 'Internal Medicine',
-      image: 'https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=600',
-      bio: '15+ years of experience in internal medicine with a focus on preventive care and chronic disease management.',
+      name: 'Dr. Muhammad Hashir (BDS, RDS, CHPE)',
+      role: 'Senior Dental Surgeon & Clinical Educator ',
+      specialty: 'Restorative Dentistry, Clinical Training & Patient-Centered Care',
+      image: '/Dr Hashir.jpeg',
+      bio: 'Dr. Muhammad Hashir is a dedicated dental surgeon with extensive experience in restorative and general dentistry. Holding a Bachelor of Dental Surgery (BDS), Registered Dental Surgeon (RDS) certification, and a Certificate in Health Professions Education (CHPE), he combines clinical excellence with a strong passion for education and professional development. Dr. Hashir is committed to delivering evidence-based, patient-focused treatments while maintaining the highest standards of care. His approach emphasizes precision, ethical practice, and long-term oral health outcomes.',
     },
     {
-      name: 'Dr. James Kim',
-      role: 'Pediatrician',
-      specialty: 'Pediatrics',
-      image: 'https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=600',
-      bio: 'Board-certified pediatrician dedicated to providing compassionate care for children of all ages.',
+      name: 'Dr Rameesaha Hashir (BDS, RDS, Certified Aesthetician)',
+      role: 'Aesthetic & Cosmetic Dental Surgeon',
+      specialty: 'Cosmetic Dentistry, Smile Design & Facial Aesthetics',
+      image: '',
+      bio: 'Dr. Rameesha Hashir is a skilled dental professional specializing in aesthetic and cosmetic dentistry. With qualifications in BDS and RDS, along with certification in aesthetics, she focuses on enhancing smiles through minimally invasive and modern cosmetic procedures. Her expertise includes smile makeovers, teeth whitening, veneers, and facial aesthetic treatments. Known for her artistic eye and gentle approach, Dr. Rameesha prioritizes patient comfort while creating natural, confident smiles.',
     },
     {
-      name: 'Dr. Emily Chen',
-      role: 'Family Medicine',
-      specialty: 'Family Practice',
-      image: 'https://images.pexels.com/photos/5452274/pexels-photo-5452274.jpeg?auto=compress&cs=tinysrgb&w=600',
-      bio: 'Specializing in holistic family healthcare with emphasis on patient education and wellness.',
+      name: 'Dr. Umer Farooq (BDS, RDS, FCPS)',
+      role: 'Consultant Dental Specialist',
+      specialty: 'Advanced Clinical Dentistry & Specialized Dental Procedures',
+      image: '',
+      bio: 'Dr. Umer Farooq is a highly qualified dental specialist with BDS, RDS, and FCPS credentials. With advanced clinical training and a strong commitment to excellence, he provides comprehensive and specialized dental care. His expertise spans complex procedures, advanced diagnostics, and evidence-based treatment planning. Dr. Umer is known for his meticulous clinical skills and dedication to achieving optimal functional and aesthetic outcomes for his patients.',
     },
-    {
-      name: 'Dr. Michael Roberts',
-      role: 'Cardiologist',
-      specialty: 'Cardiology',
-      image: 'https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=600',
-      bio: 'Expert in cardiovascular health with advanced training in preventive cardiology and heart disease.',
-    },
+    
   ];
 
   const values = [
