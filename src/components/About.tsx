@@ -87,11 +87,19 @@ const About = () => {
               className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 group"
             >
               <div className="relative overflow-hidden h-64">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
+                {member.image ? (
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-[#6B8E23] to-[#8FAF3E] flex items-center justify-center">
+                    <span className="text-white text-4xl font-bold">{member.name.charAt(0)}</span>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1F2A14] to-transparent opacity-60"></div>
                 <div className="absolute bottom-4 left-4 right-4 text-white">
                   <p className="text-sm font-semibold text-[#CFE3A1]">{member.specialty}</p>
@@ -99,7 +107,7 @@ const About = () => {
               </div>
               <div className="p-6">
                 <h4 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h4>
-                <p className="text-[#6B8E23] font-semibold mb-3">{member.role}</p>
+                <p className="text-[#3F4F2F] font-semibold mb-3">{member.role}</p>
                 <p className="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
               </div>
             </div>

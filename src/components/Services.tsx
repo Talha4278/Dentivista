@@ -108,7 +108,7 @@ const Services = () => {
               const element = document.getElementById('contact');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="bg-white text-teal-600 px-8 py-3 rounded-full font-semibold hover:bg-cyan-50 transition-all transform hover:scale-105 inline-block"
+            className="bg-white text-[#0D9488] px-8 py-3 rounded-full font-semibold hover:bg-cyan-50 transition-all transform hover:scale-105 inline-block"
           >
             Contact Us
           </button>

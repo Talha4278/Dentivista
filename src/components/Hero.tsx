@@ -50,7 +50,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={scrollToContact}
-              className="w-full sm:w-auto bg-white text-teal-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-cyan-50 transition-all transform hover:scale-105 shadow-xl"
+              className="w-full sm:w-auto bg-white text-[#0D9488] px-8 py-4 rounded-full font-semibold text-lg hover:bg-cyan-50 transition-all transform hover:scale-105 shadow-xl"
             >
               Book Appointment
             </button>
@@ -65,18 +65,18 @@ const Hero = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 animate-fade-in-up delay-300">
           <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 text-white hover:bg-opacity-20 transition-all transform hover:-translate-y-2">
-            <Calendar className="w-12 h-12 mb-4 mx-auto" />
-            <h3 className="text-xl font-semibold mb-2">Easy Scheduling</h3>
+            <Calendar className="w-12 h-12 mb-4 mx-auto" aria-hidden="true" />
+            <h2 className="text-xl font-semibold mb-2">Easy Scheduling</h2>
             <p className="text-cyan-50">Book appointments online or by phone with flexible time slots</p>
           </div>
           <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 text-white hover:bg-opacity-20 transition-all transform hover:-translate-y-2">
-            <Shield className="w-12 h-12 mb-4 mx-auto" />
-            <h3 className="text-xl font-semibold mb-2">Expert Care</h3>
+            <Shield className="w-12 h-12 mb-4 mx-auto" aria-hidden="true" />
+            <h2 className="text-xl font-semibold mb-2">Expert Care</h2>
             <p className="text-cyan-50">Board-certified physicians with decades of combined experience</p>
           </div>
           <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 text-white hover:bg-opacity-20 transition-all transform hover:-translate-y-2">
-            <Clock className="w-12 h-12 mb-4 mx-auto" />
-            <h3 className="text-xl font-semibold mb-2">Extended Hours</h3>
+            <Clock className="w-12 h-12 mb-4 mx-auto" aria-hidden="true" />
+            <h2 className="text-xl font-semibold mb-2">Extended Hours</h2>
             <p className="text-cyan-50">Open evenings and weekends to fit your busy schedule</p>
           </div>
         </div>

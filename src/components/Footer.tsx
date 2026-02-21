@@ -14,6 +14,9 @@ const Footer = () => {
                 src="/icon.png"
                 alt="Dentivista logo"
                 className="w-20 h-20 object-contain relative z-10"
+                width={80}
+                height={80}
+                loading="lazy"
                 style={{
                   mixBlendMode: 'multiply',
                   filter: 'drop-shadow(0 0 3px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.7)) contrast(1.3) brightness(1.15)',
@@ -27,11 +30,11 @@ const Footer = () => {
               Providing exceptional healthcare services with compassion and expertise.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/p/Dentivista-61578077104083/" className="text-gray-300 hover:text-[#8FAF3E] transition-colors">
+              <a href="https://www.facebook.com/p/Dentivista-61578077104083/" className="text-gray-300 hover:text-[#8FAF3E] transition-colors" aria-label="Visit Dentivista on Facebook">
                 <Facebook size={20} />
               </a>
               
-              <a href="https://www.instagram.com/dentivista?igsh=MWd3c2JvNzVueDFkdA==" className="text-gray-300 hover:text-[#8FAF3E] transition-colors">
+              <a href="https://www.instagram.com/dentivista?igsh=MWd3c2JvNzVueDFkdA==" className="text-gray-300 hover:text-[#8FAF3E] transition-colors" aria-label="Visit Dentivista on Instagram">
                 <Instagram size={20} />
               </a>
               

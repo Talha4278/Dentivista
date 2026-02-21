@@ -111,7 +111,16 @@ const Reviews = () => {
                         className="absolute top-0 left-0 w-full h-full object-cover"
                         controls
                         playsInline
-                      />
+                        preload="metadata"
+                      >
+                        <track
+                          kind="captions"
+                          src={review.video_url?.includes('1') ? '/review-1-captions.vtt' : '/review-2-captions.vtt'}
+                          srcLang="en"
+                          label="English"
+                          default
+                        />
+                      </video>
                     ) : (
                       <iframe
                         src={getYouTubeEmbedUrl(review.video_url) || ''}
@@ -121,8 +130,8 @@ const Reviews = () => {
                       ></iframe>
                     )}
                   </div>
-                  <div className="flex items-center justify-center mt-3 text-[#6B8E23]">
-                    <Video size={18} className="mr-2" />
+                  <div className="flex items-center justify-center mt-3 text-[#3F4F2F]">
+                    <Video size={18} className="mr-2" aria-hidden="true" />
                     <span className="text-sm font-semibold">Video Testimonial</span>
                   </div>
                 </div>

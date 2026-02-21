@@ -114,7 +114,7 @@ const Contact = () => {
                 {info.link ? (
                   <a
                     href={info.link}
-                    className="text-[#6B8E23] hover:text-[#3F4F2F] font-medium"
+                    className="text-[#3F4F2F] hover:text-[#1F2A14] font-medium"
                   >
                     {info.content}
                   </a>

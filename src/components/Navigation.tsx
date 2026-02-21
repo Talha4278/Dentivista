@@ -51,6 +51,9 @@ const Navigation = () => {
                 src="/icon.png"
                 alt="Dentivista logo"
                 className="w-10 h-10 object-contain relative z-10"
+                width={40}
+                height={40}
+                fetchPriority="high"
                 style={{
                   mixBlendMode: 'multiply',
                   filter: 'drop-shadow(0 0 3px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.7)) contrast(1.3) brightness(1.15)',
@@ -114,6 +117,8 @@ const Navigation = () => {
           <button
             className="md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
               <X size={28} className={isScrolled ? 'text-gray-900' : 'text-white'} />
