@@ -36,7 +36,7 @@ const Location = () => {
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Directions</h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Easy access from Highway 101, Exit 45. Free parking available in the adjacent structure.
+                  Down Town Royal Orchard , Multan. Free parking available in the adjacent structure.
                   </p>
                   <a
                     href="https://share.google/aHkoqGmq426wYR646"
@@ -59,7 +59,7 @@ const Location = () => {
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Parking & Accessibility</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    Wheelchair accessible entrance on ground floor. Elevator access to all floors.
+            
                     Complimentary valet parking available Mon-Fri.
                   </p>
                 </div>

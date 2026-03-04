@@ -50,8 +50,9 @@ const About = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">About Our Clinic</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Providing exceptional healthcare services to our community for over 20 years.
-            Our mission is to deliver personalized, compassionate care that improves lives.
+          Your smile and confidence are at the heart of everything we do.
+          Our clinic offers comprehensive dental and aesthetic treatments tailored to your unique needs.
+          We believe in compassionate care, clear communication, and natural-looking results that help you feel your absolute best — inside and out.
           </p>
         </div>
 
@@ -76,7 +77,7 @@ const About = () => {
         <div className="mb-12 text-center">
           <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Meet Our Team</h3>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Our experienced physicians are dedicated to providing you with the highest quality of care
+          Our skilled dentists and aesthetic practitioners are dedicated to enhancing oral health and facial harmony through advanced techniques and personalized care.
           </p>
         </div>
 

@@ -84,7 +84,7 @@ const Contact = () => {
     {
       icon: Clock,
       title: 'Hours',
-      content: 'Mon-Fri: 8AM-8PM, Sat-Sun: 9AM-5PM',
+      content: 'Mon-Sat: 5PM-10PM',
       link: null,
     },
   ];

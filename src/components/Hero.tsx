@@ -72,7 +72,7 @@ const Hero = () => {
           <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 text-white hover:bg-opacity-20 transition-all transform hover:-translate-y-2">
             <Shield className="w-12 h-12 mb-4 mx-auto" aria-hidden="true" />
             <h2 className="text-xl font-semibold mb-2">Expert Care</h2>
-            <p className="text-cyan-50">Board-certified physicians with decades of combined experience</p>
+            <p className="text-cyan-50">Led by highly trained dental and aesthetic professionals.</p>
           </div>
           <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 text-white hover:bg-opacity-20 transition-all transform hover:-translate-y-2">
             <Clock className="w-12 h-12 mb-4 mx-auto" aria-hidden="true" />
