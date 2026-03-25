@@ -1,4 +1,5 @@
 import {Facebook,Instagram} from 'lucide-react';
+import iconLogo from '/icon.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,17 +12,12 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-4">
               <div className="flex items-center justify-center relative">
               <img
-                src="/icon.png"
+                src={iconLogo}
                 alt="Dentivista logo"
                 className="w-20 h-20 object-contain relative z-10"
                 width={80}
                 height={80}
                 loading="lazy"
-                style={{
-                  mixBlendMode: 'multiply',
-                  filter: 'drop-shadow(0 0 3px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.7)) contrast(1.3) brightness(1.15)',
-                  WebkitFilter: 'drop-shadow(0 0 3px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.7)) contrast(1.3) brightness(1.15)'
-                }}
               />
               </div>
               <span className="text-xl font-bold">Dentivista Dental & Aesthetics</span>

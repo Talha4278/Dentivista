@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
+import iconLogo from '/icon.png';
 
 const WhatsAppIcon = ({ className, size = 20 }: { className?: string; size?: number }) => (
   <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="currentColor">
@@ -48,17 +49,12 @@ const Navigation = () => {
           <div className="flex items-center space-x-3">
             <div className="flex items-center justify-center relative">
               <img
-                src="/icon.png"
+                src={iconLogo}
                 alt="Dentivista logo"
                 className="w-10 h-10 object-contain relative z-10"
                 width={40}
                 height={40}
                 fetchPriority="high"
-                style={{
-                  mixBlendMode: 'multiply',
-                  filter: 'drop-shadow(0 0 3px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.7)) contrast(1.3) brightness(1.15)',
-                  WebkitFilter: 'drop-shadow(0 0 3px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.7)) contrast(1.3) brightness(1.15)'
-                }}
               />
             </div>
 
