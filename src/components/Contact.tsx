@@ -51,9 +51,19 @@ const Contact = () => {
 
     setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Create formatted message for WhatsApp
+    const whatsappMessage = `*New Contact Request*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n*Service:* ${formData.service}\n*Message:* ${formData.message}`;
 
-    console.log('Form submitted:', formData);
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // WhatsApp Web API URL
+    const whatsappUrl = `https://wa.me/923000979185?text=${encodedMessage}`;
+
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, '_blank');
+
+    // Show success message
     setSubmitted(true);
     setFormData({ name: '', email: '', phone: '', service: '', message: '' });
     setIsSubmitting(false);
