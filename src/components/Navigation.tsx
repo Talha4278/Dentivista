@@ -30,23 +30,29 @@ const Navigation = () => {
 
   const navLinks = [
     { name: 'Home', id: 'home' },
-    { name: 'About', id: 'about' },
     { name: 'Services', id: 'services' },
+    { name: 'Why Us', id: 'why-us' },
+    { name: 'Specialists', id: 'about' },
     { name: 'Reviews', id: 'reviews' },
+    { name: 'Process', id: 'process' },
+    { name: 'FAQ', id: 'faq' },
+    { name: 'Location', id: 'location' },
     { name: 'Contact', id: 'contact' },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'
+        isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-
-          {/* Logo + Text */}
-          <div className="flex items-center space-x-3">
+          {/* Logo + Brand Name */}
+          <div
+            onClick={() => scrollToSection('home')}
+            className="flex items-center space-x-3 cursor-pointer"
+          >
             <div className="flex items-center justify-center relative">
               <img
                 src={iconLogo}
@@ -57,104 +63,104 @@ const Navigation = () => {
                 fetchPriority="high"
               />
             </div>
-
             <span
-              className={`text-xl font-bold ${
-                isScrolled ? 'text-gray-900' : 'text-white'
+              className={`text-lg sm:text-xl font-bold tracking-tight ${
+                isScrolled ? 'text-gray-900' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]'
               }`}
             >
-              Dentivista Dental & Aesthetics
+              Dentivista <span className="hidden sm:inline">Dental & Aesthetics</span>
             </span>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
+          {/* Desktop Navigation Links */}
+          <div className="hidden lg:flex items-center space-x-5">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className={`font-medium transition-colors hover:text-[#6B8E23] ${
-                  isScrolled ? 'text-gray-700' : 'text-white'
+                className={`text-sm font-medium transition-colors hover:text-[#6B8E23] ${
+                  isScrolled ? 'text-gray-700' : 'text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]'
                 }`}
               >
                 {link.name}
               </button>
             ))}
+          </div>
 
+          {/* Quick Contact Buttons */}
+          <div className="hidden sm:flex items-center space-x-3">
             <a
               href="https://wa.me/923000979185"
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-colors ${
-                isScrolled
-                  ? 'bg-[#25D366] text-white hover:bg-[#20BD5A]'
-                  : 'bg-[#25D366] text-white hover:bg-[#20BD5A]'
-              }`}
+              className="flex items-center space-x-1.5 px-3.5 py-2 rounded-full bg-[#25D366] text-white text-xs font-bold hover:bg-[#20BD5A] transition-all shadow-md"
               aria-label="WhatsApp"
             >
-              <WhatsAppIcon size={18} />
-              <span className="text-sm font-medium">+92 300 0979185</span>
+              <WhatsAppIcon size={16} />
+              <span>WhatsApp</span>
             </a>
             <a
               href="tel:+923000979185"
-              className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-colors ${
+              className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-full text-xs font-bold transition-all shadow-md ${
                 isScrolled
                   ? 'bg-[#6B8E23] text-white hover:bg-[#5a7d1e]'
-                  : 'bg-white/20 text-white hover:bg-white/30 backdrop-blur'
+                  : 'bg-white/20 text-white hover:bg-white/30 backdrop-blur border border-white/30'
               }`}
               aria-label="Call"
             >
-              <Phone size={18} />
-              <span className="text-sm font-medium">+92 300 0979185</span>
+              <Phone size={14} />
+              <span>Call Us</span>
             </a>
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Mobile Menu Toggle Button */}
           <button
-            className="md:hidden"
+            className="lg:hidden p-1"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
-              <X size={28} className={isScrolled ? 'text-gray-900' : 'text-white'} />
+              <X size={26} className={isScrolled ? 'text-gray-900' : 'text-white'} />
             ) : (
-              <Menu size={28} className={isScrolled ? 'text-gray-900' : 'text-white'} />
+              <Menu size={26} className={isScrolled ? 'text-gray-900' : 'text-white'} />
             )}
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Overlay */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 bg-white rounded-lg shadow-lg">
+          <div className="lg:hidden mt-3 py-4 bg-white rounded-2xl shadow-2xl border border-gray-100 max-h-[80vh] overflow-y-auto">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-[#F6FAEC] hover:text-[#6B8E23] transition-colors"
+                className="block w-full text-left px-6 py-2.5 text-gray-700 font-medium hover:bg-[#F6FAEC] hover:text-[#6B8E23] transition-colors text-sm"
               >
                 {link.name}
               </button>
             ))}
 
-            <a
-              href="https://wa.me/923000979185"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 mx-6 mt-4 bg-[#25D366] text-white px-6 py-3 rounded-full hover:bg-[#20BD5A] transition-colors justify-center"
-              aria-label="WhatsApp"
-            >
-              <WhatsAppIcon size={20} />
-              <span>+92 300 0979185</span>
-            </a>
-            <a
-              href="tel:+923000979185"
-              className="flex items-center space-x-2 mx-6 mt-3 bg-[#6B8E23] text-white px-6 py-3 rounded-full hover:bg-[#5a7d1e] transition-colors justify-center"
-              aria-label="Call"
-            >
-              <Phone size={20} />
-              <span>+92 300 0979185</span>
-            </a>
+            <div className="pt-3 mt-2 border-t border-gray-100 px-6 space-y-2">
+              <a
+                href="https://wa.me/923000979185"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full hover:bg-[#20BD5A] transition-colors justify-center text-sm font-bold shadow-sm"
+                aria-label="WhatsApp"
+              >
+                <WhatsAppIcon size={18} />
+                <span>+92 300 0979185</span>
+              </a>
+              <a
+                href="tel:+923000979185"
+                className="flex items-center space-x-2 bg-[#6B8E23] text-white px-5 py-2.5 rounded-full hover:bg-[#5a7d1e] transition-colors justify-center text-sm font-bold shadow-sm"
+                aria-label="Call"
+              >
+                <Phone size={16} />
+                <span>Call Us Now</span>
+              </a>
+            </div>
           </div>
         )}
       </div>

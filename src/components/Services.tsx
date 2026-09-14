@@ -48,26 +48,34 @@ const Services = () => {
     <section id="services" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+          <span className="text-[#6B8E23] font-bold text-sm uppercase tracking-wider bg-[#F6FAEC] px-4 py-1.5 rounded-full border border-[#E3EBCB] inline-block mb-3">
+            Comprehensive Treatments
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Services</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive dental and aesthetic treatments tailored to your needs
+            Advanced dental care and non-surgical aesthetic solutions tailored to your unique health and beauty goals.
           </p>
         </div>
 
-        <div className="mb-12">
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Dental Services</h3>
+        {/* Dental Services */}
+        <div className="mb-16">
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center flex items-center justify-center space-x-3">
+            <span className="w-8 h-1 bg-[#6B8E23] rounded-full inline-block"></span>
+            <span>Dental Services</span>
+            <span className="w-8 h-1 bg-[#6B8E23] rounded-full inline-block"></span>
+          </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {dentalServices.map((service, index) => {
               const Icon = service.icon;
               return (
                 <div
                   key={index}
-                  className="group bg-gradient-to-br from-[#F6FAEC] to-white rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-[#E3EBCB] hover:border-[#8FAF3E]"
+                  className="group bg-gradient-to-br from-[#F6FAEC] to-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-[#E3EBCB] hover:border-[#8FAF3E]"
                 >
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#6B8E23] to-[#8FAF3E] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <Icon className="w-7 h-7 text-white" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#6B8E23] to-[#8FAF3E] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                    <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#6B8E23] transition-colors">
+                  <h4 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-[#6B8E23] transition-colors">
                     {service.title}
                   </h4>
                 </div>
@@ -76,42 +84,31 @@ const Services = () => {
           </div>
         </div>
 
+        {/* Aesthetic Services */}
         <div>
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Aesthetic Services</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center flex items-center justify-center space-x-3">
+            <span className="w-8 h-1 bg-[#6B8E23] rounded-full inline-block"></span>
+            <span>Aesthetic Services</span>
+            <span className="w-8 h-1 bg-[#6B8E23] rounded-full inline-block"></span>
+          </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {aestheticServices.map((service, index) => {
               const Icon = service.icon;
               return (
                 <div
                   key={index}
-                  className="group bg-gradient-to-br from-[#F6FAEC] to-white rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-[#E3EBCB] hover:border-[#8FAF3E]"
+                  className="group bg-gradient-to-br from-[#F6FAEC] to-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-[#E3EBCB] hover:border-[#8FAF3E]"
                 >
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#6B8E23] to-[#8FAF3E] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <Icon className="w-7 h-7 text-white" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#6B8E23] to-[#8FAF3E] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                    <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#6B8E23] transition-colors">
+                  <h4 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-[#6B8E23] transition-colors">
                     {service.title}
                   </h4>
                 </div>
               );
             })}
           </div>
-        </div>
-
-        <div className="mt-16 bg-gradient-to-br from-[#3F4F2F] via-[#6B8E23] to-[#8FAF3E] rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl">
-          <h3 className="text-xl text-[#F4F8EE] mb-6 max-w-2xl mx-auto">Need a Specialized Service?</h3>
-          <p className="text-xl text-[#F4F8EE] mb-6 max-w-2xl mx-auto">
-            We also provide referrals to trusted specialists and coordinate care for complex medical needs
-          </p>
-          <button
-            onClick={() => {
-              const element = document.getElementById('contact');
-              if (element) element.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="bg-white text-[#0D9488] px-8 py-3 rounded-full font-semibold hover:bg-cyan-50 transition-all transform hover:scale-105 inline-block"
-          >
-            Contact Us
-          </button>
         </div>
       </div>
     </section>

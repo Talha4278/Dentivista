@@ -1,5 +1,5 @@
 import { useState, FormEvent } from 'react';
-import { Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
+import { Phone, Mail, Clock, Send, CheckCircle, ShieldCheck } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -51,19 +51,13 @@ const Contact = () => {
 
     setIsSubmitting(true);
 
-    // Create formatted message for WhatsApp
-    const whatsappMessage = `*New Contact Request*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n*Service:* ${formData.service}\n*Message:* ${formData.message}`;
+    const whatsappMessage = `*New Appointment Request*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n*Service:* ${formData.service}\n*Message:* ${formData.message}`;
 
-    // Encode the message for URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
-
-    // WhatsApp Web API URL
     const whatsappUrl = `https://wa.me/923000979185?text=${encodedMessage}`;
 
-    // Open WhatsApp in new tab
     window.open(whatsappUrl, '_blank');
 
-    // Show success message
     setSubmitted(true);
     setFormData({ name: '', email: '', phone: '', service: '', message: '' });
     setIsSubmitting(false);
@@ -81,7 +75,7 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Phone,
-      title: 'Phone',
+      title: 'Phone & WhatsApp',
       content: '0300 0979185',
       link: 'tel:+923000979185',
     },
@@ -93,8 +87,8 @@ const Contact = () => {
     },
     {
       icon: Clock,
-      title: 'Hours',
-      content: 'Mon-Sat: 5PM-10PM',
+      title: 'Operating Hours',
+      content: 'Mon-Sat: 5:00 PM - 10:00 PM',
       link: null,
     },
   ];
@@ -102,10 +96,33 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-white via-[#F6FAEC] to-[#EEF4E1]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+        
+        {/* Transition Banner for Specialized Care */}
+        <div className="mb-16 bg-gradient-to-r from-[#3F4F2F] via-[#6B8E23] to-[#8FAF3E] rounded-3xl p-8 md:p-10 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-center md:text-left">
+            <div className="inline-flex items-center space-x-2 text-[#EAF2D3] font-bold text-xs uppercase tracking-wider bg-white/10 px-3 py-1 rounded-full mb-2">
+              <ShieldCheck size={14} />
+              <span>Specialized Care & Referrals</span>
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-2">Need a Customized Treatment or Referral?</h3>
+            <p className="text-white/90 text-sm md:text-base max-w-2xl">
+              Don't see your exact procedure listed? We coordinate specialized medical care and custom consultation plans.
+            </p>
+          </div>
+          <a
+            href="https://wa.me/923000979185?text=Hello%20Dentivista,%20I%20have%20a%20specialized%20treatment%20query."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-[#3F4F2F] px-6 py-3 rounded-full font-bold hover:bg-[#F6FAEC] transition-all transform hover:scale-105 shadow-md flex-shrink-0 text-sm"
+          >
+            Ask on WhatsApp
+          </a>
+        </div>
+
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Book Your Appointment</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Have questions or ready to book an appointment? We're here to help!
+            Fill out the form below or contact us directly to schedule your visit with our specialists.
           </p>
         </div>
 
@@ -115,33 +132,33 @@ const Contact = () => {
             return (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 text-center border border-[#E3EBCB]"
+                className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 text-center border border-[#E3EBCB]"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-[#6B8E23] to-[#8FAF3E] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-8 h-8 text-white" />
+                <div className="w-14 h-14 bg-gradient-to-br from-[#6B8E23] to-[#8FAF3E] rounded-full flex items-center justify-center mx-auto mb-4 text-white shadow-md">
+                  <Icon className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{info.title}</h3>
                 {info.link ? (
                   <a
                     href={info.link}
-                    className="text-[#3F4F2F] hover:text-[#1F2A14] font-medium"
+                    className="text-[#6B8E23] hover:text-[#3F4F2F] font-bold transition-colors"
                   >
                     {info.content}
                   </a>
                 ) : (
-                  <p className="text-gray-600">{info.content}</p>
+                  <p className="text-gray-600 font-medium">{info.content}</p>
                 )}
               </div>
             );
           })}
         </div>
 
-        <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+        <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-[#E3EBCB]">
           {submitted && (
             <div className="mb-8 bg-green-50 border border-green-200 rounded-xl p-6 flex items-center">
               <CheckCircle className="text-green-600 mr-3 flex-shrink-0" size={24} />
               <p className="text-green-800 font-medium">
-                Thank you! Your message has been sent successfully. We'll get back to you soon.
+                Thank you! Your booking request has been initiated on WhatsApp. We will confirm your slot shortly.
               </p>
             </div>
           )}
@@ -194,7 +211,7 @@ const Contact = () => {
                   className={`w-full px-4 py-3 border ${
                     errors.phone ? 'border-red-300' : 'border-gray-300'
                   } rounded-xl focus:ring-2 focus:ring-[#6B8E23] focus:border-transparent transition-all`}
-                  placeholder="(123) 456-7890"
+                  placeholder="0300 0000000"
                 />
                 {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone}</p>}
               </div>
@@ -220,12 +237,12 @@ const Contact = () => {
                     <option value="smile-design">Smile Design</option>
                     <option value="gum-treatment">Gum Treatment</option>
                     <option value="dental-jewellery">Dental Jewellery</option>
-                    <option value="dental-implants">Dental Implants and Bone Management</option>
+                    <option value="dental-implants">Dental Implants & Bone Management</option>
                     <option value="dentures">Removable and Fixed Dentures</option>
                     <option value="cast-partial">Cast Partial Dentures</option>
                     <option value="zirconium-crowns">Zirconium Crowns</option>
                     <option value="pfm-crowns">PFM Crowns</option>
-                    <option value="extractions">Simple Extractions, Complex Extraction and Surgery</option>
+                    <option value="extractions">Simple Extractions & Surgery</option>
                     <option value="wisdom-tooth">Wisdom Tooth Surgery</option>
                     <option value="sealants">Pits and Fissure Sealants</option>
                     <option value="orthodontic">Orthodontic Treatment</option>
@@ -240,6 +257,9 @@ const Contact = () => {
                     <option value="mole-removal">Mole Removal</option>
                     <option value="chemical-peel">Chemical Peel</option>
                   </optgroup>
+                  <optgroup label="Specialized Care">
+                    <option value="custom-consultation">Specialized Care Consultation</option>
+                  </optgroup>
                 </select>
                 {errors.service && <p className="mt-1 text-sm text-red-600">{errors.service}</p>}
               </div>
@@ -247,17 +267,17 @@ const Contact = () => {
 
             <div>
               <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                Message *
+                Message / Preferred Time *
               </label>
               <textarea
                 id="message"
-                rows={6}
+                rows={5}
                 value={formData.message}
                 onChange={(e) => handleChange('message', e.target.value)}
                 className={`w-full px-4 py-3 border ${
                   errors.message ? 'border-red-300' : 'border-gray-300'
                 } rounded-xl focus:ring-2 focus:ring-[#6B8E23] focus:border-transparent transition-all resize-none`}
-                placeholder="Tell us how we can help you..."
+                placeholder="Tell us about your concern or preferred appointment date & time..."
               ></textarea>
               {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
             </div>
@@ -265,19 +285,19 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full md:w-auto bg-gradient-to-r from-[#6B8E23] to-[#8FAF3E] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-[#3F4F2F] hover:to-[#6B8E23] transition-all transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 ${
+              className={`w-full md:w-auto bg-gradient-to-r from-[#6B8E23] to-[#8FAF3E] text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-[#3F4F2F] hover:to-[#6B8E23] transition-all transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 ${
                 isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
               }`}
             >
               {isSubmitting ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  <span>Sending...</span>
+                  <span>Sending Request...</span>
                 </>
               ) : (
                 <>
                   <Send size={20} />
-                  <span>Send Message</span>
+                  <span>Book Appointment on WhatsApp</span>
                 </>
               )}
             </button>
